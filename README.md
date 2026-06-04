@@ -1,51 +1,38 @@
 # Domain-Adapted LLM Training for Automotive E/E
 
-  
+This project is an end-to-end demonstration of adapting a small open-source LLM to the automotive electrical/electronic (E/E) domain using only public data and free computein a toy scenario.
 
 ---
 
-  
+## Motivation
+
+General-purpose language models are pretrained on broad web corpora — automotive E/E text is structurally underrepresented in these sources.
+CPT on curated in-domain data followed by SFT on targeted instruction pairs directly improves both domain knowledge and task behavior.
+
+---
 
 ## Overview
 
-  
+| Part | Task | Deliverable |
+|------|------|-------------|
+| 1 | Data corpus construction | Strategy write-up + corpus assembly script |
+| 2 | Continued Pre-Training (CPT) | Design write-up + training notebook |
+| 3 | Supervised Fine-Tuning (SFT) | 15 instruction pairs (JSONL) + SFT write-up |
+| 4 | Evaluation | Eval plan + ROUGE-L results (Base → CPT → CPT+SFT) |
 
-This project demonstrates how to adapt a small open-source language model to the automotive E/E domain end-to-end in a toy szenario:
+All steps use only public data and free compute.
 
-  
+---
 
-- Part 1: data corpus construction
-
-- Part 2: continued pre-training (CPT)
-
-- Part 3: supervised fine-tuning (SFT)
-
-- Part 4: evaluation
-
-  
-
-All steps use only public data and free compute (Colab/local).
-
-  
-
-## Model Choice
-
-  
+## Model Choice  
 
 **Llama-3.2-1B-Base** (`meta-llama/Llama-3.2-1B`)
 
-  
+| Property           | Value                         |
+| ------------------ | ----------------------------- |
+| Publisher          | Meta (2024)                   |
+| Parameters         | 1.24B                         |
+| Pretraining tokens | ~9T                           |
+| Context window     | 128k tokens                   |
 
-Selected as the base model within the ≤1.5B parameter constraint:
-
-  
-
-- published by Meta (2024)
-
-- trained on 9T tokens with a strong English focus
-
-- 128k token context window
-
-- Efficient 32k vocabulary
-
-- Base variant (not instruct)
+?? Selected for the ≤1.5B parameter constraint: strong English pretraining, efficient vocabulary, and broad community support for fine-tuning tooling (Unsloth, PEFT). ??
