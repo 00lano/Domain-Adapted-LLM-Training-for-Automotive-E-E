@@ -23,9 +23,9 @@ Continued Pre-Training (CPT) on in-domain text addresses both gaps simultaneousl
 
 ## Corpus Construction: Citation-Driven Strategy
 
-The corpus is built from three categories of English-language E/E sources: academic papers, Wikipedia articles, and domain-specific web pages. Rather than scraping broadly, I started with a citation-driven strategy, using Eder (TUM, 2022), "Automatic Exploration of Automotive E/E Architectures", as the seed document and its reference list as a curated map to the most relevant E/E literature.
+The corpus is built from three categories of English-language E/E sources: academic papers, Wikipedia articles, and domain-specific web pages. Rather than scraping broadly, I used a citation-driven strategy with six seed documents spanning some of the core E/E subtopics. Reference sections are parsed and matched against the OpenAlex API to retrieve open-access PDFs where available. 
 
-Reference sections are parsed and matched against the Semantic Scholar API to retrieve open-access PDFs where available. Wikipedia articles were manually curated to cover the full E/E stack: communication protocols (CAN, LIN, FlexRay, Ethernet), system architecture (ECU, AUTOSAR), safety (ISO 26262, functional safety), and diagnostics (OBD-II, UDS). Domain-specific web pages complement the paper corpus with more accessible coverage of E/E concepts.
+Wikipedia articles were manually curated to cover the full E/E stack: communication protocols (CAN, LIN, FlexRay, Ethernet), system architecture (ECU, AUTOSAR), safety (ISO 26262, functional safety), and diagnostics (OBD-II, UDS). Domain-specific web pages complement the paper corpus with more accessible coverage of E/E concepts.
 
 ## Preprocessing Pipeline
 
