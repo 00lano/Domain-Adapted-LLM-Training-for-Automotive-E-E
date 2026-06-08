@@ -32,6 +32,18 @@ All steps use only public data and free compute.
 | Tokenizer          | TikToken-based                |
 | Context window     | 128k tokens                   |
 
+## Prerequisites
+  
+**HuggingFace Access (required for Part 1 + Part 2)**
+
+Llama-3.2-1B is a gated model. Before running any script or notebook:
+
+1. Accept the model license at: https://huggingface.co/meta-llama/Llama-3.2-1B
+2. Create a HuggingFace access token (Read): https://huggingface.co/settings/tokens
+3. Authenticate:
+huggingface-cli login
+    or set the environment variable:
+export HF_TOKEN=your_token_here
 
 ## Repository Structure
 
@@ -39,16 +51,15 @@ All steps use only public data and free compute.
 assignment/
 ├── README.md
 ├── part1_data/
-│   ├── corpus_strategy.md       # Write-up: data selection and filtering rationale
-│   └── build_corpus.py          # Script: citation-driven corpus assembly + preprocessing
+│   ├── corpus_strategy.md       # data corpus strategy write-up
+│   └── build_corpus.py          # sample corpus assembly script
 ├── part2_cpt/
-│   ├── cpt_design.md            # Write-up: CPT objective, LoRA config, hyperparameters
-│   └── cpt_notebook.ipynb       # Notebook: runnable CPT with Unsloth on Colab
+│   ├── cpt_design.md            # CPT design write-up
+│   └── cpt_notebook.ipynb       # training notebook (Colab)
 ├── part3_sft/
-│   ├── sft_approach.md          # Write-up: instruction pair design, LoRA vs full FT
-│   └── instruction_pairs.jsonl  # 15 E/E domain instruction/response pairs
+│   ├── sft_approach.md          # SFT approach write-up
+│   └── instruction_pairs.jsonl  # 15 instruction/response pairs
 └── part4_eval/
-    ├── eval_plan.md             # Write-up: evaluation methodology, ROUGE-L rationale
-    └── eval_questions.md        # 10 questions with reference answers + ROUGE-L results
-...
+    ├── eval_plan.md             # evaluation plan
+    └── eval_questions.md        # eval questions + reference answers
 ```
