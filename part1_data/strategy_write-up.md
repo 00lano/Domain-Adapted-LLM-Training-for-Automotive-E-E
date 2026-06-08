@@ -57,12 +57,5 @@ Chunk size is set to 2048 tokens — a conservative choice that fits comfortably
 
 The filtered, deduplicated corpus is split 90/10 into train and validation sets. Validation loss during CPT serves as an early convergence signal without waiting for the Part 4 evaluation.
 
-### Domain-Specific Vocabulary
-
-General tokenizers (trained on web-scale text) tokenize E/E terms like AUTOSAR, CAN-FD, or SOME/IP into suboptimal subword fragments. The clean solution — vocabulary extension with retraining of embedding layers — is complex and risks training instability.
-
-> **Toy (this project):** CPT progressively adjusts the embeddings of existing tokens toward the E/E context through continued exposure. This is sufficient for a toy prototype.
-
-> **Production-level fix:** Extend the tokenizer vocabulary with domain-specific tokens, initialize their embeddings as the mean of their constituent subword fragments, and retrain embedding and LM head layers alongside CPT. This requires a sufficiently large corpus for stable embedding learning — infeasible at toy scale.
 
 ## Limitations
